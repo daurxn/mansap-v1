@@ -35,6 +35,8 @@ const {
   error: fetchError,
 } = await useFetch("/api/profile/all");
 
+console.log(profilesData.value);
+
 // Computed properties based on fetch results
 const profiles = computed(() => (profilesData.value as UserProfile[]) || []);
 const isLoading = computed(() => pending.value);
@@ -68,12 +70,12 @@ onMounted(() => {
   if (profilesContainer.value) {
     inView(profilesContainer.value, () => {
       animate(
-        '.profile-card',
+        ".profile-card",
         { opacity: [0, 1], y: [50, 0], scale: [0.9, 1] },
-        { 
+        {
           delay: stagger(0.08),
           duration: 0.5,
-          easing: [0.22, 1, 0.36, 1]
+          easing: [0.22, 1, 0.36, 1],
         }
       );
     });
@@ -190,7 +192,8 @@ onMounted(() => {
 /* Profile card hover animation */
 .profile-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 /* Button animation on hover */
