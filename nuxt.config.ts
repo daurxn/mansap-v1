@@ -39,8 +39,8 @@ export default defineNuxtConfig({
     routeRules: {
       "/api/**": {
         proxy: {
-          // to: "https://mansap-server.vercel.app/api/**",
-          to: "http://localhost:3001/api/**",
+          to: "https://mansap-server.vercel.app/api/**",
+          // to: "http://localhost:3001/api/**",
         },
       },
     },
